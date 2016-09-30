@@ -11,6 +11,7 @@
 
 package org.eclipse.edje;
 
+import java.io.Serializable;
 import java.security.Permission;
 
 /**
@@ -21,6 +22,11 @@ import java.security.Permission;
  */
 @SuppressWarnings("serial")
 public class PeripheralManagerPermission<P extends Peripheral> extends Permission {
+
+	/**
+	 * {@link Serializable} UID.
+	 */
+	private static final long serialVersionUID = -6261525173173462790L;
 
 	/**
 	 * The {@link #READ} permission is required to access to registered
@@ -55,7 +61,7 @@ public class PeripheralManagerPermission<P extends Peripheral> extends Permissio
 
 	/**
 	 * Returns the peripheral class on which this permission is required.
-	 * 
+	 *
 	 * @return the peripheral class
 	 */
 	public Class<P> getPeripheralClass() {

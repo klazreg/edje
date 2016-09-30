@@ -124,7 +124,6 @@ public class PeripheralManager {
 	 * {@link SecurityManager#checkPermission(java.security.Permission)} method
 	 * is called with {@link PeripheralManagerPermission#MODIFY} name and the
 	 * peripheral type.
-	 *
 	 * <p>
 	 * A static peripheral is a peripheral available on startup. A registration
 	 * event is not created when a static peripheral is registered.
