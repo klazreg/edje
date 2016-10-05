@@ -124,7 +124,6 @@ public class PeripheralManager {
 	 * {@link SecurityManager#checkPermission(java.security.Permission)} method
 	 * is called with {@link PeripheralManagerPermission#MODIFY} name and the
 	 * peripheral type.
-	 *
 	 * <p>
 	 * A static peripheral is a peripheral available on startup. A registration
 	 * event is not created when a static peripheral is registered.
@@ -219,6 +218,39 @@ public class PeripheralManager {
 	public static <P extends Peripheral> Iterator<P> list(Class<P> peripheralType) {
 		PeripheralRegistry.checkRead(peripheralType);
 		return PeripheralRegistry.list(peripheralType);
+	}
+
+	/**
+	 * Finds the fisrt peripheral that is compatible with the given class and
+	 * that has the specified name. If there is a security manager, its
+	 * {@link SecurityManager#checkPermission(java.security.Permission)} method
+	 * is called with {@link PeripheralManagerPermission#READ} action and the
+	 * peripheral type.
+	 *
+	 * @param <P>
+	 *            the type of peripherals to list
+	 * @param peripheralType
+	 *            the type of the peripheral to be found
+	 * @param peripheralName
+	 *            the type of the peripheral to be found
+	 * @return a peripheral of the given type, with the specified name, or
+	 *         <code/>null</code> if no such peripheral is found.
+	 * @throws SecurityException
+	 *             if a security manager exists and it doesn't allow the caller
+	 *             to list peripherals of the given type
+	 * @throws NullPointerException
+	 *             if the specified name is null
+	 */
+	public static <P extends Peripheral> P find(Class<P> peripheralType, String peripheralName) {
+		PeripheralRegistry.checkRead(peripheralType);
+		Iterator<P> list = PeripheralManager.list(peripheralType);
+		while (list.hasNext()) {
+			P p = list.next();
+			if (peripheralName.equals(p.getName())) {
+				return p;
+			}
+		}
+		return null;
 	}
 
 	/**
