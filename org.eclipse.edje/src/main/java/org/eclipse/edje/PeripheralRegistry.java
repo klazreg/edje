@@ -138,4 +138,5 @@ public interface PeripheralRegistry {
 	 *         not registered
 	 */
 	public <C extends Peripheral, P extends C> Class<C> getRegisteredClass(P peripheral);
+
 }
