@@ -298,6 +298,9 @@ public class PeripheralManagerPermission extends Permission {
 				String thisValue = thisConstraints.get(property);
 				if (thisValue != null) {
 					String thatValue = that.constraints.get(property);
+					if (thatValue == null) {
+						return false;
+					}
 					if (!match(thisValue, thatValue)) {
 						return false;
 					}
