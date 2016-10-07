@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Application-Id: EdjeMetronome
+Application-Version: 0.1.0
+Application-PrintableName: EdjeMetronome
+Application-BackgroundServices: org.eclipse.edje.samples.microej.metronome.MetronomeService
