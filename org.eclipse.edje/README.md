@@ -13,3 +13,18 @@
 
 # Overview
 This project contains the generic implementation of the Edje library.
+
+# Usage
+Import the classes...
+
+# Requirements
+  - EDC-1.2 or higher
+
+## Dependencies
+_All dependencies are retrieved transitively by Ivy resolver_.
+
+# Source
+N/A
+
+## Restrictions
+None.
