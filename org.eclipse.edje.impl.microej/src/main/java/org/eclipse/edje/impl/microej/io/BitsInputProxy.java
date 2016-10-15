@@ -4,7 +4,7 @@
  * Copyright 2016 IS2T. All rights reserved.
  * IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
-package org.eclipse.edje.impl.microej;
+package org.eclipse.edje.impl.microej.io;
 
 import java.io.DataInputStream;
 import java.io.EOFException;
@@ -15,11 +15,22 @@ import java.io.InputStream;
  * Instances of this class are delegating proxies for their ej.ecom.io.BitsInput
  * counterpart.
  */
-class BitsInputProxy extends DataInputStream implements org.eclipse.edje.comm.BitsInput {
+public class BitsInputProxy extends DataInputStream implements org.eclipse.edje.comm.BitsInput {
 
-	protected final ej.ecom.io.BitsInput input;
+	final ej.ecom.io.BitsInput input;
 
-	BitsInputProxy(InputStream in) {
+	/**
+	 * Creates a proxy for the specified InputStream
+	 * 
+	 * @param in
+	 *            the InputStream to proxy for, must implement
+	 *            ej.ecom.io.BitsInput.
+	 * 
+	 * @throws ClassCastException
+	 *             if the specified InputStream doesn't implement
+	 *             ej.ecom.io.BitsInput.
+	 */
+	public BitsInputProxy(InputStream in) {
 		super(in);
 		this.input = (ej.ecom.io.BitsInput) in;
 	}

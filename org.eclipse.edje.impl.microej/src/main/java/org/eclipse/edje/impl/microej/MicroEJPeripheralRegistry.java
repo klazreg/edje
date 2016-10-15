@@ -14,6 +14,7 @@ import org.eclipse.edje.DefaultPeripheralRegistry;
 import org.eclipse.edje.Peripheral;
 import org.eclipse.edje.PeripheralManager;
 import org.eclipse.edje.comm.CommPort;
+import org.eclipse.edje.impl.microej.comm.CommPortProxy;
 import org.eclipse.edje.util.Pump;
 
 import ej.ecom.DeviceManager;

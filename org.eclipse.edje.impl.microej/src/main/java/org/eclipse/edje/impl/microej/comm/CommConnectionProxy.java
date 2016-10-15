@@ -4,7 +4,7 @@
  * Copyright 2016 IS2T. All rights reserved.
  * IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
-package org.eclipse.edje.impl.microej;
+package org.eclipse.edje.impl.microej.comm;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -13,14 +13,23 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.eclipse.edje.comm.CommConnection;
+import org.eclipse.edje.impl.microej.io.BitsInputProxy;
+import org.eclipse.edje.impl.microej.io.BitsOutputProxy;
+import org.eclipse.edje.impl.microej.io.ConnectionProxy;
 
 /**
  * Instances of this class are delegating proxies for their
- * ej.ecom.io.BitsOutput counterpart.
+ * ej.ecom.io.CommConnection counterpart.
  */
-class CommConnectionProxy extends ConnectionProxy implements CommConnection {
+public class CommConnectionProxy extends ConnectionProxy implements CommConnection {
 
-	CommConnectionProxy(ej.ecom.io.CommConnection ecomConnection) {
+	/**
+	 * Creates a proxy for the specified ej.ecom.io.CommConnection
+	 * 
+	 * @param ecomConnection
+	 *            the connection to proxy for.
+	 */
+	public CommConnectionProxy(ej.ecom.io.CommConnection ecomConnection) {
 		super(ecomConnection);
 	}
 

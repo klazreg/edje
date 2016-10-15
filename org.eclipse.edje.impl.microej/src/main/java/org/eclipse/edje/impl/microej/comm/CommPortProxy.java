@@ -4,7 +4,7 @@
  * Copyright 2016 IS2T. All rights reserved.
  * IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
-package org.eclipse.edje.impl.microej;
+package org.eclipse.edje.impl.microej.comm;
 
 import java.io.IOException;
 
@@ -12,16 +12,20 @@ import org.eclipse.edje.HardwareDescriptor;
 import org.eclipse.edje.Peripheral;
 
 /**
- *
+ * Instances of this class are delegating proxies for their
+ * ej.ecom.io.CommConnection counterpart.
  */
-class CommPortProxy implements org.eclipse.edje.comm.CommPort {
+public class CommPortProxy implements org.eclipse.edje.comm.CommPort {
 	private final ej.ecom.io.CommPort ecomCommPort;
 	private final HardwareDescriptor<org.eclipse.edje.comm.CommPort> desc;
 
 	/**
+	 * Creates a proxy for the specified ej.ecom.io.CommPort
+	 * 
 	 * @param ecomCommPort
+	 *            the port to proxy for.
 	 */
-	CommPortProxy(ej.ecom.io.CommPort ecomCommPort) {
+	public CommPortProxy(ej.ecom.io.CommPort ecomCommPort) {
 		this.ecomCommPort = ecomCommPort;
 		this.desc = new HardwareDescriptor<org.eclipse.edje.comm.CommPort>() {
 

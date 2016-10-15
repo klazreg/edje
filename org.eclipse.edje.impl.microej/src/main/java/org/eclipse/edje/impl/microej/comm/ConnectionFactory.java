@@ -9,25 +9,21 @@
  *    {Guillaume Balan, MicroEJ} - initial API and implementation and/or initial documentation
  *******************************************************************************/
 
-package org.eclipse.edje.connection.comm;
+package org.eclipse.edje.impl.microej.comm;
 
 import java.io.IOException;
 
-import org.eclipse.edje.impl.microej.CommConnectionFactory;
 import org.eclipse.edje.io.Connection;
 
 /**
- * This class s actually delegating to
- * org.eclipse.edje.impl.microej.CommConnectionFactory
- *
+ * This class is the actual implementation of the Edje comm: protocol for
+ * MicroEJ. The created connection is a proxy of the ECOM comm connection.
  */
 public class ConnectionFactory implements org.eclipse.edje.io.ConnectionFactory {
 
-	private final CommConnectionFactory factory = new CommConnectionFactory();
-
 	@Override
 	public Connection open(String name) throws IOException {
-		return factory.open(name);
+		ej.ecom.io.CommConnection ecomConn = (ej.ecom.io.CommConnection) ej.ecom.io.Connector.open(name);
+		return new CommConnectionProxy(ecomConn);
 	}
-
 }

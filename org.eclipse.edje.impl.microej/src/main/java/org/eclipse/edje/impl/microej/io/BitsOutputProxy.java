@@ -4,7 +4,7 @@
  * Copyright 2016 IS2T. All rights reserved.
  * IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
-package org.eclipse.edje.impl.microej;
+package org.eclipse.edje.impl.microej.io;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -14,11 +14,22 @@ import java.io.OutputStream;
  * Instances of this class are delegating proxies for their
  * ej.ecom.io.BitsOutput counterpart.
  */
-class BitsOutputProxy extends DataOutputStream implements org.eclipse.edje.comm.BitsOutput {
+public class BitsOutputProxy extends DataOutputStream implements org.eclipse.edje.comm.BitsOutput {
 
-	protected final ej.ecom.io.BitsOutput output;
+	final ej.ecom.io.BitsOutput output;
 
-	BitsOutputProxy(OutputStream out) {
+	/**
+	 * Creates a proxy for the specified OutputStream
+	 * 
+	 * @param out
+	 *            the OutputStream to proxy for, must implement
+	 *            ej.ecom.io.BitsOutput.
+	 * 
+	 * @throws ClassCastException
+	 *             if the specified OutputStream doesn't implement
+	 *             ej.ecom.io.BitsOutput.
+	 */
+	public BitsOutputProxy(OutputStream out) {
 		super(out);
 		this.output = (ej.ecom.io.BitsOutput) out;
 	}

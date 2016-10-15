@@ -1,2 +1,3 @@
+org.eclipse.edje.PeripheralRegistry
 org.eclipse.edje.impl.microej.MicroEJPeripheralRegistry
-org.eclipse.edje.connection.comm.ConnectionFactory
+org.eclipse.edje.impl.microej.comm.ConnectionFactory
