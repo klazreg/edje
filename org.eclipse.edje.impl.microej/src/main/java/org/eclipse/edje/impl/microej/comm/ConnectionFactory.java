@@ -6,7 +6,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Contributors:
- *    {Guillaume Balan, MicroEJ} - initial API and implementation and/or initial documentation
+ *    {Laurent Lagosanto, MicroEJ} - initial API and implementation and/or initial documentation
  *******************************************************************************/
 
 package org.eclipse.edje.impl.microej.comm;
