@@ -11,7 +11,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.edje.DefaultPeripheralRegistry;
-import org.eclipse.edje.Peripheral;
 import org.eclipse.edje.PeripheralManager;
 import org.eclipse.edje.comm.CommPort;
 import org.eclipse.edje.impl.microej.comm.CommPortProxy;
@@ -74,19 +73,12 @@ public class MicroEJPeripheralRegistry extends DefaultPeripheralRegistry {
 			while (ecomCommPorts.hasNext()) {
 				CommPort commPort = new CommPortProxy(ecomCommPorts.next());
 				System.out.println("Registering " + commPort.getName());
-				register(CommPort.class, commPort);
+				register(CommPort.class, commPort, false, true);
 			}
 		}
 
 		// enumerate GPIOs
 		System.out.println("Enumerating GPIO ports...");
-		GPIOPortImpl.init();
+		GPIOPortImpl.init(this);
 	}
-
-	@Override
-	public <P extends Peripheral> Iterator<P> list(Class<P> peripheralType) {
-		// so that the class gets initialized
-		return super.list(peripheralType);
-	}
-
 }

@@ -8,7 +8,6 @@ package org.eclipse.edje.impl.microej;
 
 import org.eclipse.edje.HardwareDescriptor;
 import org.eclipse.edje.Peripheral;
-import org.eclipse.edje.PeripheralManager;
 import org.eclipse.edje.gpio.GPIOPort;
 
 /**
@@ -30,27 +29,24 @@ class GPIOPortImpl implements GPIOPort {
 	static final int F7_PORT_ARDUINO_DIGITAL = 30;
 	static final int F7_PORT_ARDUINO_ANALOG = 31;
 
-	static {
-		register(F7_PORT_MCU_ALL, "GPIO_MCU_ALL", 0, 143);
-		register(F7_PORT_MCU_A, "GPIO_MCU_A", 0, 15);
-		register(F7_PORT_MCU_B, "GPIO_MCU_B", 0, 15);
-		register(F7_PORT_MCU_F, "GPIO_MCU_F", 0, 15);
-		register(F7_PORT_MCU_G, "GPIO_MCU_G", 0, 15);
-		register(F7_PORT_MCU_H, "GPIO_MCU_H", 0, 15);
-		register(F7_PORT_MCU_I, "GPIO_MCU_I", 0, 15);
-		register(F7_PORT_CN4, "GPIO_CN4", 1, 8);
-		register(F7_PORT_CN5, "GPIO_CN5", 1, 10);
-		register(F7_PORT_CN7, "GPIO_CN7", 1, 6);
-		register(F7_PORT_ARDUINO_DIGITAL, "GPIO_ARDUINO_DIGITAL", 0, 15);
-		register(F7_PORT_ARDUINO_ANALOG, "GPIO_ARDUINO_ANALOG", 0, 7);
-	}
-
-	private static void register(int id, String name, int pinMin, int pinMax) {
+	private static void register(MicroEJPeripheralRegistry registry, int id, String name, int pinMin, int pinMax) {
 		System.out.println("Registering " + name);
-		PeripheralManager.register(GPIOPort.class, new GPIOPortImpl(id, name, pinMin, pinMax));
+		registry.register(GPIOPort.class, new GPIOPortImpl(id, name, pinMin, pinMax), false, true);
 	}
 
-	static void init() {
+	static void init(MicroEJPeripheralRegistry registry) {
+		register(registry, F7_PORT_MCU_ALL, "GPIO_MCU_ALL", 0, 143);
+		register(registry, F7_PORT_MCU_A, "GPIO_MCU_A", 0, 15);
+		register(registry, F7_PORT_MCU_B, "GPIO_MCU_B", 0, 15);
+		register(registry, F7_PORT_MCU_F, "GPIO_MCU_F", 0, 15);
+		register(registry, F7_PORT_MCU_G, "GPIO_MCU_G", 0, 15);
+		register(registry, F7_PORT_MCU_H, "GPIO_MCU_H", 0, 15);
+		register(registry, F7_PORT_MCU_I, "GPIO_MCU_I", 0, 15);
+		register(registry, F7_PORT_CN4, "GPIO_CN4", 1, 8);
+		register(registry, F7_PORT_CN5, "GPIO_CN5", 1, 10);
+		register(registry, F7_PORT_CN7, "GPIO_CN7", 1, 6);
+		register(registry, F7_PORT_ARDUINO_DIGITAL, "GPIO_ARDUINO_DIGITAL", 0, 15);
+		register(registry, F7_PORT_ARDUINO_ANALOG, "GPIO_ARDUINO_ANALOG", 0, 7);
 	}
 
 	private final int port_id;
