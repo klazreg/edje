@@ -15,7 +15,7 @@ import java.io.InputStream;
  * Instances of this class are delegating proxies for their ej.ecom.io.BitsInput
  * counterpart.
  */
-public class BitsInputProxy extends DataInputStream implements org.eclipse.edje.comm.BitsInput {
+public class BitsInputProxy extends DataInputStream implements org.eclipse.edje.io.BitsInput {
 
 	final ej.ecom.io.BitsInput input;
 

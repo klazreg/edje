@@ -14,7 +14,7 @@ import java.io.OutputStream;
  * Instances of this class are delegating proxies for their
  * ej.ecom.io.BitsOutput counterpart.
  */
-public class BitsOutputProxy extends DataOutputStream implements org.eclipse.edje.comm.BitsOutput {
+public class BitsOutputProxy extends DataOutputStream implements org.eclipse.edje.io.BitsOutput {
 
 	final ej.ecom.io.BitsOutput output;
 
