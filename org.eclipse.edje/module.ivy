@@ -8,9 +8,8 @@
 	<info organisation="org.eclipse.edje" module="edje" status="integration" revision="0.1.0">
 		<ea:build organisation="com.is2t.easyant.buildtypes" module="build-microej-javalib" revision="3.+">
 			<ea:property name="src.test.java" value="src/test/resources"/>
-			<ea:property name="test.run.includes.pattern" value="**/_SingleTest_*.class"/>
-			<ea:property name="addon-processor.project.dir" value="${basedir}"/>
-			<ea:plugin org="com.is2t.easyant.plugins" module="addon-processor" revision="+"/>
+			<ea:property name="skip.test" value="true"/>
+			<ea:property name="jpf.install.skip" value="true"/>
 		</ea:build>
 	</info>
 	<configurations defaultconfmapping="default->default;provided->provided">
