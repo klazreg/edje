@@ -15,7 +15,6 @@ package org.eclipse.edje.test.peripherals;
 import java.io.IOException;
 import java.util.HashMap;
 
-import org.eclipse.edje.Peripheral;
 import org.eclipse.edje.comm.CommPort;
 import org.eclipse.edje.io.Connection;
 
@@ -37,16 +36,6 @@ public abstract class CommPortImpl implements CommPort {
 	@Override
 	public String getName() {
 		return name;
-	}
-
-	@Override
-	public Peripheral getParent() {
-		return null;
-	}
-
-	@Override
-	public Peripheral[] getChildren() {
-		return null;
 	}
 
 	@Override
