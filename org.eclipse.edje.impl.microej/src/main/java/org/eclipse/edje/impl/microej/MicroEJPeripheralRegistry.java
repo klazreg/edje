@@ -72,18 +72,15 @@ public class MicroEJPeripheralRegistry extends DefaultPeripheralRegistry {
 		}
 
 		// enumerate ECOM devices and proxy them
-		System.out.println("Enumerating ECOM CommPorts devices...");
 		Iterator<ej.ecom.io.CommPort> ecomCommPorts = DeviceManager.list(ej.ecom.io.CommPort.class);
 		if (ecomCommPorts.hasNext()) {
 			while (ecomCommPorts.hasNext()) {
 				CommPort commPort = new CommPortProxy(ecomCommPorts.next());
-				System.out.println("Registering " + commPort.getName());
 				register(CommPort.class, commPort, false, true);
 			}
 		}
 
 		// enumerate GPIOs
-		System.out.println("Enumerating GPIO ports...");
 		GPIOPortImpl.init(this);
 	}
 }

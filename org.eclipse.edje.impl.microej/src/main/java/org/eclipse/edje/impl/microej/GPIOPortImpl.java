@@ -35,7 +35,6 @@ class GPIOPortImpl implements GPIOPort {
 	static final int F7_PORT_ARDUINO_ANALOG = 31;
 
 	private static void register(MicroEJPeripheralRegistry registry, int id, String name, int pinMin, int pinMax) {
-		System.out.println("Registering " + name);
 		registry.register(GPIOPort.class, new GPIOPortImpl(id, name, pinMin, pinMax), false, true);
 	}
 
