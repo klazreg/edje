@@ -17,7 +17,8 @@ import org.eclipse.edje.gpio.GPIOPort;
 import ej.wadapps.app.BackgroundService;
 
 /**
- *
+ * Instantiates a Metronome Thread running in the background.<br>
+ * The Metronome is actually configured on the GPIO_ARDUINO ports.
  */
 public class MetronomeService implements BackgroundService {
 

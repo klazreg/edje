@@ -15,7 +15,8 @@ import org.eclipse.edje.gpio.GPIOPort;
 import org.eclipse.edje.gpio.GPIOPort.Mode;
 
 /**
- *
+ * The Metronome will tick a LED at a frequency determined by reading a
+ * potentiometer.
  */
 public class Metronome implements Runnable {
 
@@ -26,8 +27,19 @@ public class Metronome implements Runnable {
 	private final int ledPinTick;
 	private volatile boolean stop;
 
-	/**	
+	/**
+	 * Creates a Metronome configured a a specific hardware:
+	 * <li>A LED on a pin of a digital port
+	 * <li>A Potentiometer on a pin of an analog port
 	 *
+	 * @param ledPort
+	 *            the digital port on which the LED is connected to.
+	 * @param ledPinTick
+	 *            the id of the pin on which the LED is connected to.
+	 * @param potPort
+	 *            the analog port on which the potentiometer is connected to.
+	 * @param potPin
+	 *            the id of the pin on which the potentiometer is connected to.
 	 */
 	public Metronome(GPIOPort ledPort, int ledPinTick, GPIOPort potPort, int potPin) {
 		this.ledPort = ledPort;
@@ -59,7 +71,7 @@ public class Metronome implements Runnable {
 		}
 	}
 
-	public void stop() {
+	void stop() {
 		this.stop = true;
 	}
 }
