@@ -25,7 +25,7 @@
 	
 	<dependencies>
         <dependency org="ej.api" name="edc" rev="[1.2.0-RC0,2.0.0-RC0[" conf="provided->*" />
-        <dependency org="org.eclipse.edje" name="edje" rev="[0.0.0-RC0,1.0.0-RC0[" conf="default" />
+        <dependency org="org.eclipse.edje" name="edje" rev="[0.2.0-RC0,1.0.0-RC0[" conf="default" />
         <dependency org="ej.api" name="hal" rev="[1.0.0-RC0,2.0.0-RC0[" conf="provided->*" />
 		<dependency org="ej.api" name="ecom" rev="[1.1.0,2.0.0[" conf="provided->*" />
 		<dependency org="ej.api" name="ecom-comm" rev="[1.1.0,2.0.0[" conf="provided->*" />

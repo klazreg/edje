@@ -16,8 +16,8 @@ import org.eclipse.edje.Peripheral;
 import org.eclipse.edje.gpio.GPIOPort;
 
 /**
- * MicroEJ-specific GPIO port implementation. It's actually valid only on the F7
- * board for the moment.
+ * MicroEJ-specific GPIO port implementation. It's actually valid only on the
+ * STM32F746G-DISCO board for the moment.
  */
 class GPIOPortImpl implements GPIOPort {
 	private static final int ANALOG_MAX = 4095;

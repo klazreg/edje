@@ -33,7 +33,7 @@
 		-->
         <dependency org="ej.api" name="edc" rev="[1.2.0-RC0,2.0.0-RC0[" conf="provided->*" />
         <dependency org="ej.library.wadapps" name="framework" rev="[1.2.0-RC0,2.0.0-RC0[" />
-        <dependency org="org.eclipse.edje" name="edje" rev="[0.1.0-RC0,1.0.0-RC0[" conf="default->*"/>
+        <dependency org="org.eclipse.edje" name="edje" rev="[0.2.0-RC0,1.0.0-RC0[" conf="default->*"/>
         <dependency org="org.eclipse.edje" name="edje.impl.microej" rev="[0.1.0-RC0,1.0.0-RC0[" conf="default->*"/>
         
         <!-- 
