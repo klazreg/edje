@@ -77,16 +77,6 @@ class GPIOPortImpl implements GPIOPort {
 	}
 
 	@Override
-	public Peripheral getParent() {
-		return null;
-	}
-
-	@Override
-	public Peripheral[] getChildren() {
-		return null;
-	}
-
-	@Override
 	public void setMode(int pin, Mode mode) {
 		if ((pin < pinMin) || (pin > pinMax)) {
 			throw new IllegalArgumentException();

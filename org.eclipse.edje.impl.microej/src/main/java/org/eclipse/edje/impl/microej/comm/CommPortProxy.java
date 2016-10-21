@@ -14,7 +14,6 @@ package org.eclipse.edje.impl.microej.comm;
 import java.io.IOException;
 
 import org.eclipse.edje.HardwareDescriptor;
-import org.eclipse.edje.Peripheral;
 
 /**
  * Instances of this class are delegating proxies for their
@@ -67,16 +66,6 @@ public class CommPortProxy implements org.eclipse.edje.comm.CommPort {
 	@Override
 	public String getName() {
 		return ecomCommPort.getName();
-	}
-
-	@Override
-	public Peripheral getParent() {
-		return null;
-	}
-
-	@Override
-	public Peripheral[] getChildren() {
-		return null;
 	}
 
 	@Override
