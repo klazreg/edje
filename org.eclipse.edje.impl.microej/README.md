@@ -10,7 +10,7 @@
  *    {Laurent Lagosanto, MicroEJ} - initial documentation
  *******************************************************************************/
 -->
-# Overview
+## Overview
 MicroEJ-specific implementation for the Edje library.
 
 ## Usage
