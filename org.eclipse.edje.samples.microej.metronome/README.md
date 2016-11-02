@@ -7,7 +7,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Contributors:
- *    {LAurent Lagosanto, MicroEJ} - initial documentation
+ *    {Laurent Lagosanto, MicroEJ} - initial documentation
  *******************************************************************************/
 -->
 # Overview
