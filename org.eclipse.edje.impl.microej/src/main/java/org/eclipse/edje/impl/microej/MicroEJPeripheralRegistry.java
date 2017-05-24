@@ -80,7 +80,18 @@ public class MicroEJPeripheralRegistry extends DefaultPeripheralRegistry {
 			}
 		}
 
-		// enumerate GPIOs
-		GPIOPortImpl.init(this);
+		String platform = System.getProperty("com.microej.platform.hardwarePartNumber");
+		if (platform != null) {
+			try {
+				String boardSupportName = "org.eclipse.edje.impl.microej.BoardSupport_" + platform;
+				@SuppressWarnings("unchecked")
+				Class<BoardSupport> boardSupportClass = (Class<BoardSupport>) Class.forName(boardSupportName);
+				BoardSupport boardSupport = boardSupportClass.newInstance(); 
+				// enumerate board specific devices
+				boardSupport.init(this);
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

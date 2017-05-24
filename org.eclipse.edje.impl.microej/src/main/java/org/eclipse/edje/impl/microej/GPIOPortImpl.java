@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 IS2T S.A. Operating under the brand name MicroEJ(r).
+ * Copyright (c) 2016-2017 IS2T S.A. Operating under the brand name MicroEJ(r).
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Apache License v2.0
  * which accompanies this distribution, and is available at
@@ -16,53 +16,24 @@ import org.eclipse.edje.Peripheral;
 import org.eclipse.edje.gpio.GPIOPort;
 
 /**
- * MicroEJ-specific GPIO port implementation. It's actually valid only on the
- * STM32F746G-DISCO board for the moment.
+ * MicroEJ-specific GPIO port implementation.
  */
 class GPIOPortImpl implements GPIOPort {
-	private static final int ANALOG_MAX = 4095;
-	static final int F7_PORT_MCU_ALL = 0;
-	static final int F7_PORT_MCU_A = 1;
-	static final int F7_PORT_MCU_B = 2;
-	static final int F7_PORT_MCU_F = 6;
-	static final int F7_PORT_MCU_G = 7;
-	static final int F7_PORT_MCU_H = 8;
-	static final int F7_PORT_MCU_I = 9;
-	static final int F7_PORT_CN4 = 64;
-	static final int F7_PORT_CN5 = 65;
-	static final int F7_PORT_CN7 = 67;
-	static final int F7_PORT_ARDUINO_DIGITAL = 30;
-	static final int F7_PORT_ARDUINO_ANALOG = 31;
-
-	private static void register(MicroEJPeripheralRegistry registry, int id, String name, int pinMin, int pinMax) {
-		registry.register(GPIOPort.class, new GPIOPortImpl(id, name, pinMin, pinMax), false, true);
-	}
-
-	static void init(MicroEJPeripheralRegistry registry) {
-		register(registry, F7_PORT_MCU_ALL, "GPIO_MCU_ALL", 0, 143);
-		register(registry, F7_PORT_MCU_A, "GPIO_MCU_A", 0, 15);
-		register(registry, F7_PORT_MCU_B, "GPIO_MCU_B", 0, 15);
-		register(registry, F7_PORT_MCU_F, "GPIO_MCU_F", 0, 15);
-		register(registry, F7_PORT_MCU_G, "GPIO_MCU_G", 0, 15);
-		register(registry, F7_PORT_MCU_H, "GPIO_MCU_H", 0, 15);
-		register(registry, F7_PORT_MCU_I, "GPIO_MCU_I", 0, 15);
-		register(registry, F7_PORT_CN4, "GPIO_CN4", 1, 8);
-		register(registry, F7_PORT_CN5, "GPIO_CN5", 1, 10);
-		register(registry, F7_PORT_CN7, "GPIO_CN7", 1, 6);
-		register(registry, F7_PORT_ARDUINO_DIGITAL, "GPIO_ARDUINO_DIGITAL", 0, 15);
-		register(registry, F7_PORT_ARDUINO_ANALOG, "GPIO_ARDUINO_ANALOG", 0, 7);
-	}
 
 	private final int port_id;
 	private final String name;
 	private final int pinMin;
 	private final int pinMax;
+	private final int analogMin;
+	private final int analogMax;
 
-	GPIOPortImpl(int id, String name, int pinMin, int pinMax) {
+	GPIOPortImpl(int id, String name, int pinMin, int pinMax, int analogMin, int analogMax) {
 		this.port_id = id;
 		this.name = name;
 		this.pinMin = pinMin;
 		this.pinMax = pinMax;
+		this.analogMin = analogMin;
+		this.analogMax = analogMax;
 	}
 
 	@Override
@@ -126,29 +97,26 @@ class GPIOPortImpl implements GPIOPort {
 	public void setAnalogValue(int pin, int value) {
 		// FIXME: this is an hardcoded conversion to a percentage,
 		// because the hal only offers such an interface.
-		if (value > ANALOG_MAX) {
+		if (value > analogMax) {
 			throw new IllegalArgumentException();
 		}
-		int percentage = (value * 100) / ANALOG_MAX;
+		int percentage = (value * 100) / analogMax;
 		ej.hal.gpio.GPIO.setAnalogValue(port_id, pin, percentage);
 	}
 
 	@Override
 	public int getAnalogMaxValue(int pin) {
-		// FIXME: this is an hardcoded value for the F7 because the hal
-		// doesn't offer such an interface yet
-		// we know that the ADCs are 12bits on this platform.
 		if ((pin < pinMin) || (pin > pinMax)) {
 			throw new IllegalArgumentException();
 		}
-		return ANALOG_MAX;
+		return analogMax;
 	}
 
 	@Override
 	public int getAnalogMinValue(int pin) {
-		// FIXME: this is an hardcoded value for the F7 because the hal
-		// doesn't offer such an interface yet
-		// we know that the ADCs are 12bits on this platform.
-		return 0;
+		if ((pin < pinMin) || (pin > pinMax)) {
+			throw new IllegalArgumentException();
+		}
+		return analogMin;
 	}
 }

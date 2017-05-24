@@ -10,4 +10,5 @@
 ###############################################################################
 org.eclipse.edje.PeripheralRegistry
 org.eclipse.edje.impl.microej.MicroEJPeripheralRegistry
+org.eclipse.edje.impl.microej.BoardSupport_STM32F746GDISCO
 org.eclipse.edje.impl.microej.comm.ConnectionFactory
