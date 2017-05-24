@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 IS2T S.A. Operating under the brand name MicroEJ(r).
+ * Copyright (c) 2016-2017 IS2T S.A. Operating under the brand name MicroEJ(r).
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Apache License v2.0
  * which accompanies this distribution, and is available at
@@ -197,7 +197,7 @@ public class PeripheralManager {
 	 * @param peripheralName
 	 *            the type of the peripheral to be found
 	 * @return a peripheral of the given type, with the specified name, or
-	 *         <code/>null</code> if no such peripheral is found.
+	 *         <code>null</code> if no such peripheral is found.
 	 * @throws NullPointerException
 	 *             if the specified name is null
 	 */

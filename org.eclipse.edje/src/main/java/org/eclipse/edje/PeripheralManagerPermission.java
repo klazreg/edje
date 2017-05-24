@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 IS2T S.A. Operating under the brand name MicroEJ(r).
+ * Copyright (c) 2016-2017 IS2T S.A. Operating under the brand name MicroEJ(r).
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Apache License v2.0
  * which accompanies this distribution, and is available at
@@ -164,12 +164,14 @@ public class PeripheralManagerPermission extends Permission {
 	 *
 	 * The values themselves can contain the wildcard character ('*') like in
 	 * the following examples:
+	 * <ul>
 	 * <li>"*" : means any value (basically a way to mandate the property to be
 	 * set)
 	 * <li>"prefix*" : means any value starting with "prefix"
 	 * <li>"*suffix" : means any value ending with "suffix"
 	 * <li>"prefix*suffix" : means any value both starting with "prefix" and
 	 * ending with "suffix" with anything in between.
+	 * </ul>
 	 *
 	 * Specifying constraints means that the all the properties exposed by the
 	 * {@link HardwareDescriptor} of the {@link Peripheral} must fall under

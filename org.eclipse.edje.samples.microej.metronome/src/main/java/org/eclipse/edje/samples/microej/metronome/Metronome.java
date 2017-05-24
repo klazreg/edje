@@ -29,9 +29,11 @@ public class Metronome implements Runnable {
 
 	/**
 	 * Creates a Metronome configured a a specific hardware:
+	 * <ul>
 	 * <li>A LED on a pin of a digital port
 	 * <li>A Potentiometer on a pin of an analog port
-	 *
+	 * </ul>
+	 * 
 	 * @param ledPort
 	 *            the digital port on which the LED is connected to.
 	 * @param ledPinTick

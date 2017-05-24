@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 IS2T S.A. Operating under the brand name MicroEJ(r).
+ * Copyright (c) 2016-2017 IS2T S.A. Operating under the brand name MicroEJ(r).
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Apache License v2.0
  * which accompanies this distribution, and is available at
@@ -82,7 +82,7 @@ public abstract class Pump<T> implements Runnable {
 	public abstract void execute(T data);
 
 	/**
-	 * Called when an error occurred during {@link #run()}.<br/>
+	 * Called when an error occurred during {@link #run()}.<br>
 	 * The default behaviour is invoke the
 	 * {@link java.lang.Thread.UncaughtExceptionHandler} passed in the
 	 * constructor, if any, and continue.

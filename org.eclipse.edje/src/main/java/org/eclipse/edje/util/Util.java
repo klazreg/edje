@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 IS2T S.A. Operating under the brand name MicroEJ(r).
+ * Copyright (c) 2016-2017 IS2T S.A. Operating under the brand name MicroEJ(r).
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Apache License v2.0
  * which accompanies this distribution, and is available at
@@ -29,11 +29,12 @@ public class Util {
 	/**
 	 * Throws an {@link IndexOutOfBoundsException} when the array bounds are
 	 * incoherent:
-	 * <li>when the <code>offset</code> is negative</li>
-	 * <li>when the <code>length</code> to copy is negative</li>
-	 * <li>when <code>offset + length</code> is negative</li>
-	 * <li>when <code>offset + length</code> is higher than the array's length
-	 * </li>.
+	 * <ul>
+	 * <li>when the <code>offset</code> is negative
+	 * <li>when the <code>length</code> to copy is negative
+	 * <li>when <code>offset + length</code> is negative
+	 * <li>when <code>offset + length</code> is higher than the array's length.
+	 * </ul>
 	 *
 	 * @param arrayLength
 	 *            the array's length. Positive for sure (no check)
