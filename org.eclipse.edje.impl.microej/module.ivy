@@ -6,7 +6,7 @@
 -->
 <ivy-module version="2.0" xmlns:ea="http://www.easyant.org"> 
 	<info organisation="org.eclipse.edje" module="edje.impl.microej" status="integration" revision="0.1.0">
-		<ea:build organisation="com.is2t.easyant.buildtypes" module="build-microej-javalib" revision="3.+">
+		<ea:build organisation="com.is2t.easyant.buildtypes" module="build-microej-javalib" revision="4.+">
 		</ea:build>
 	</info>
 	<configurations defaultconfmapping="default->default;provided->provided">
